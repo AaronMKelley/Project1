@@ -11,46 +11,101 @@
 </head>
 <body>
    
-        <div class="large-12 cell">
-        <div class="primary callout">
-            <div class='callout'>
-        <h1>Daily Meal Preper <a id="login" href="">Login | Sign Up</a></h1>
-          
-             </div>
-        </div>
-    
-</div>
-
+       
 <div class="grid-container">
 <div class="grid-x grid-padding-x">
    <div class="large-2 cell">
    </div>
     <div class="large-8 cell">
         <div class='callout'>
-            <h3>Welcome!</h3>
-            <p>This is your one stop shop to all of your meal planning needs.</p>
-            <p>Whether your goals are wieght loss, lowering your blood pressure, or other health goals, we have the tools to help make them a reality.</p>
-            <a id="mealPrep" href="">START YOUR MEAL PLANNING JOURNEY</a>
+            <h3>What are your diet goals? <select> 
+                    <option value="calories">Lose/Watch Weight</option>
+                    <option value="sodium">Lower Blood Pressure</option>
+                    <option value="carbs">Watch Carb Intake</option>
+                    <option value="fiber">Add More Fiber</option>
+                    <input type="text" placeholder="What's your goal?"><button id="addGoal">Add Goal</button>
+             </select></h3>
+            
+           
         </div>
         </div>
         <div class="large-1 cell"></div>
     </div>
 
 </div>
+<div class="grid-container">
+        <div class="grid-x grid-padding-x">
+           <div class="large-2 cell">
+           </div>
+            <div class="large-8 cell">
+                <div class='callout'>
+                    <label >Search food/drink by barcode<input type="text" ><button id="barcode">Search</button></label>
+                    </div>
+                </div>
+                <div class="large-1 cell"></div>
+            </div>
+        </div>
+
+
+<div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="large-2 cell">
+            </div>
+            <div class="large-8 cell">
+                <div class='callout'>
+                    <label >Search food/drink by name<input id="" type="text" ><button id="openSearch">Search</button></label>
+                    </div>
+                </div>
+                <div class="large-1 cell"></div>
+            </div>
+</div>
+
+<!-- <div class="grid-container">     -->
+<div class="grid-x ">
+         <div class="large-3 cell">
+            </div>
+<div class="large-3 cell">
+<!-- <div class="callout"> -->
+        <ul> Running Food List
+            <li>NO ITEMS YET!</li>
+
+        </ul>
+</div>  
+<!-- </div> -->
+<div class="large-3 cell">
+<!-- <div class="callout"> -->
+<!-- </div> -->
+<h3>Running Total: <span id="runningTotal"></span></h3>
+<h3>Goal: <span id="yourGoal"></span></h3>
+<P id="warningMessage"></P>
+<!-- </div> -->
+</div>
+</div>
+
+
+
+<div class="grid-x">
+        <div class="large-5 cell"></div>
+    <div id="finished"class="large-5 cell">
+            <a  href="">Finished? See your final list</a>
+        </div>
+
+</div>
+
+
 
 <div id="bottomDiv" class="large-12 cell">
-    <div class='callout'>
-
-</div>
-</div>
-
+        <div class='callout'>
+   <p><a class="center" href="home-page.html">Home &nbsp; </a> <a class="center" href="home-page.html">FAQ</a></p>
+    </div>
+ </div>
 
 
 
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="aaron.js">
 	
 
 		
