@@ -41,7 +41,7 @@
            </div>
             <div class="large-8 cell">
                 <div class='callout'>
-                    <label >Search food/drink by barcode<input id="#barcodeSearch" type="text" ><button id="barcode">Search</button></label>
+                    <label >Search food/drink by barcode<input id="barcodeSearch" type="text" ><button id="barcodeButton">Search</button></label>
                     </div>
                 </div>
                 <div class="large-1 cell"></div>
@@ -56,11 +56,13 @@
             <div class="large-8 cell" >
                 <div class='callout'>
                     <label >Search food/drink by name<input id="randomFood" type="text" data-toggle-focus="form-callout" ><button id="openSearch">Search</button></label>
-                    <div id="openSearchContent" class="hidden"> 
+                    <div id="openSearchContent" class="hide"> 
                             <p><span id="foodName"></span></p>
-                            <li><span id="calories"></span>Calories</li>
-                            <li><span id='sodium'></span></li>
-                            <a id>Add Item &nbsp;&nbsp;&nbsp;&nbsp; <a ><span></span></a>Cancel</a>
+                            <li><span id="calories"></span>&nbsp;calories</li>
+                            <li><span id='sodium'></span>Mg of sodium</li>
+                            <li><span id='protein'></span>g of protein</li>
+                            <li><span id='carbs'></span>g of carbs</li>
+                            <a id="addItem">Add Item &nbsp;&nbsp;&nbsp;&nbsp; <a ><span></span></a>Cancel</a>
                             </div>
                 </div>
                 </div>
