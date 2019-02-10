@@ -54,7 +54,8 @@ var list= [];
 // database.ref().on('value',function(dataSnapshot){
 // list=dataSnapshot.val().food;
 // $("#yourList").append(list)
-
+var calories=0;
+var food;
 // // open Search EDAMAM API 
 $("#openSearch").on('click',function(){
    event.preventDefault();
@@ -70,7 +71,7 @@ var food= $('#randomFood').val().trim();
         
             console.log(food)
 
-            var calories=0;
+           
             if (response.calories != undefined){
                 calories = response.calories
             }
@@ -98,38 +99,93 @@ var food= $('#randomFood').val().trim();
 
             $('#openSearchContent').removeClass('hide')
             
-            $("#addItem").on('click',function(){
-                console.log(food)
-                console.log("[addItem_Click]->"+calories)
-                
-                runningCounter += calories;
-                $('#runningTotal').text(runningCounter);
-
-                //$('#openSearchContent').toggleClass('hide');
-            })
+            
            
   },
             function(x,error){
                 console.log(error)
 
           });
+          
         
         });
 
-        // $("#addItem").on('click',function(){
-        //     // runningCounter + 
-        //     $('#openSearchContent').addClass('hide');
-        // })
-//Add button and cancel button. 
-// $("#addItem").on('click',function(){
-//       counter + (response.calories)
-// })
+     
+        $("#addItem").on('click',function(){
+            event.preventDefault();
+            food=$('#randomFood').val().trim();
+            console.log(food)
+            console.log("[addItem_Click]->"+calories)
+             runningCounter += calories;
+            $('#runningTotal').text(runningCounter);
+            var list = $("<ul>");
+            var listItem= $("<li>");
+            listItem.text(food)
+            list.append(listItem)
+            $('#listDiv').append(list);
+            if (runningCounter>counter){
+                $("#warning").text("WARNING: YOU ARE GOING OVER GOAL")
 
+            }
+            $('#openSearchContent').addClass('hide');
+        })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
         //Barcode API 
 $("#barcodeButton").on("click",function(){
     event.preventDefault();
-    var barcode= $("#barcodeSearch").val()
-    // debugger
+    var barcode= $("#barcodeSearch").val().trim()
+
     console.log(barcode)
     // var queryURL= "https://world.openfoodfacts.org/api/v0/product/044000025298"
     var queryURL= "https://world.openfoodfacts.org/api/v0/product/"+ barcode;
