@@ -112,8 +112,8 @@ var food= $('#randomFood').val().trim();
             var listItem= $('<li><button>'+food +'</button>&nbsp;&nbsp;Click to remove</li>');
             listItem.addClass('remove')
             $('#listDiv').append(listItem);
-            // foodCals.push(calories);
-            // foodArry.push(food);
+            foodCals.push(calories);
+            foodArry.push(food);
             if (runningCounter>counter){
                 $("#warning").text("WARNING: YOU ARE GOING OVER GOAL")
             }
@@ -126,7 +126,6 @@ var food= $('#randomFood').val().trim();
         })
   
   
-
 
   
   // saving list and displaying them on final list page. 
@@ -142,11 +141,11 @@ var food= $('#randomFood').val().trim();
     var listName= $('#saveList').val();
     var listHeader=('<ul></ul>');
     savedList= $('<li><button>'+listName+'</button>&nbsp;&nbsp;Click to remove</li>')
-    listHeader.append(savedList);
-    $('#lists').append(listHeader);
+    // listHeader.append(savedList);
+    $('#lists').append(listName);
 
-    database.ref().set({
-        savedList: listName
+    database.ref().update({
+        listName: listName
   })
   });
   
