@@ -1,5 +1,6 @@
-#this{
-background-color:green;
+.body{
+    background-image: url("https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+    background-size: 100% 100%;
 }
 
 #login {

@@ -10,7 +10,7 @@
    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
 </head>
-<body>
+<body class="body">
    
        
 <div class="grid-container">
@@ -56,14 +56,14 @@
             </div>
             <div class="large-8 cell" >
                 <div class='callout'>
-                    <label >Search food/drink by name<input id="randomFood" type="text" data-toggle-focus="form-callout" ><button id="openSearch">Search</button></label>
+                    <label >Search food/drink by name<input id="randomFood" type="text" data-toggle-focus="form-callout" ><button id="openSearch">Search</button>&nbsp;&nbsp;&nbsp;&nbsp;<button id="resetRunning">Reset</button></label>
                     <div id="openSearchContent" class="hide"> 
                             <p><span id="foodName"></span></p>
                             <li><span id="calories"></span>&nbsp;calories</li>
                             <li><span id='sodium'></span>Mg of sodium</li>
                             <li><span id='protein'></span>g of protein</li>
                             <li><span id='carbs'></span>g of carbs</li>
-                            <a id="addItem">Add Item &nbsp;&nbsp;&nbsp;&nbsp; <a ><span></span></a>Cancel</a>
+                            <button id="addItem">Add Item &nbsp;&nbsp;&nbsp;&nbsp; </button>
                             </div>
                 </div>
                 </div>
