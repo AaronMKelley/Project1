@@ -17,16 +17,11 @@
 <div class="grid-x grid-padding-x">
    <div class="large-2 cell">
    </div>
-    <div class="large-8 cell">
-        <div class='callout'>
-            <h3>What are your diet goals? <select> 
-                    <option value="calories">Lose/Watch Weight (calories)</option>
-                    <option value="sodium">Lower Blood Pressure (sodium)</option>
-                    <option value="protein">Gain Muscle (protein)</option>
-                    <option value="carbs">Watch Carb Intake (carbs)</option>
-                  <option value="sugar">Get Off Sweets (sugar)</option>
-                    <input id="statedGoal" type="text" placeholder="What's your goal?"><a href="#" id="addGoal">Add Goal</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<a  id="reset" href="#">Reset</a>
+    <div id="welcome" class="large-8 cell">
+        <div id="welcome"  >
+            <h3 id="descript">What are your calorie goals? 
+                    <input id="statedGoal" type="text" ><a href="#" id="addGoal">Add Goal</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a  id="reset" href="#">Reset Goal</a>
              </select></h3>
             
            
@@ -42,8 +37,16 @@
            </div>
             <div class="large-8 cell">
                 <div class='callout'>
-                    <label >Search food/drink by barcode<input id="#barcodeSearch" type="text" ><button id="barcodeButton">Search</button></label>
-                    </div>
+                    <label >Search food/drink by barcode<input id="barcodeSearch" type="text" ><button id="barcodeButton">Search</button></label>
+                    <div id="barcodeContent" class="hide"> 
+                            <h4><span id="product"></span></h4>
+                            <li><span id="calories-b"></span>&nbsp;calories</li>
+                            <li><span id='sodium-b'></span>Mg of sodium</li>
+                            <li><span id='protein-b'></span>g of protein</li>
+                            <li><span id='carbs-b'></span>g of carbs</li>
+                            <button id="addItem-b">Add Item &nbsp;&nbsp;&nbsp;&nbsp; </button>
+                            </div>
+                </div>
                 </div>
                 <div class="large-1 cell"></div>
             </div>
@@ -54,11 +57,11 @@
         <div class="grid-x grid-padding-x">
             <div class="large-2 cell">
             </div>
-            <div class="large-8 cell" >
-                <div class='callout'>
-                    <label >Search food/drink by name<input id="randomFood" type="text" data-toggle-focus="form-callout" ><button id="openSearch">Search</button>&nbsp;&nbsp;&nbsp;&nbsp;<button id="resetRunning">Reset</button></label>
+            <div id="welcome" class="large-8 cell" >
+                <div >
+                    <label id="addGoal" >Search food/drink by name<input id="randomFood" type="text" data-toggle-focus="form-callout" ><button id="openSearch">Search</button>&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <div id="openSearchContent" class="hide"> 
-                            <p><span id="foodName"></span></p>
+                            <h4><span id="foodName"></span></h4>
                             <li><span id="calories"></span>&nbsp;calories</li>
                             <li><span id='sodium'></span>Mg of sodium</li>
                             <li><span id='protein'></span>g of protein</li>
@@ -80,17 +83,21 @@
 <div class="grid-x ">
          <div class="large-3 cell">
             </div>
-<div class="large-3 cell" >
-<div  id="listDiv" class="callout">
-        <h4 class="center">Your List</h4>
+<div  class="large-3 cell" >
+<div id="welcome"   id="listDiv" class="callout">
+        <h4  id="descript" class="center">Your List</h4>
+        <li id="yourList"></li>
+  
+        
 </div>  
 </div>
 <div class="large-3 cell">
-<div class="callout">
+<div id="welcome" class="callout">
 <!-- </div> -->
-<h3>Running Total: <span id="runningTotal"></span></h3>
-<h3>Goal: <span id="yourGoal"></span></h3>
+<p id="descript">Running Total: <span id="runningTotal"></span></p>
+<p id="descript">Goal: <span id="yourGoal"></span></p>
 <p id="warning"></p>
+<button id="resetRunning">Reset List</button>
 </div>
 </div>
 </div>
@@ -108,10 +115,11 @@
 
 
 <div id="bottomDiv" class="large-12 cell">
-        <div class='callout'>
-   <p><a class="center" href="01-home-page.html">Home &nbsp; </a> <a class="center" href="home-page.html">FAQ</a></p>
+        <div id="welcome" class='callout'>&nbsp;
+            <p><a class="center" href="01-home-page.html">Home  </a> <a class="center" href="home-page.html">FAQ</a></p>
+         </div>
     </div>
- </div>
+
 
 
 

@@ -32,9 +32,10 @@
              <input type="button" value="Remove"></h4> -->
 
              <br>
-
+            <h1 id="lists"></h1>
            <h4>Final Counter: <span id="runningTotal"></span>
             <h4>Goal: <span id="yourGoal"></span></h4>
+            <li id="yourList"></li>
            </h4>
 </div>
 </div>
@@ -44,11 +45,9 @@
            <!-- <div class="grid-x grid-padding-x">
              <div class="large-4 medium-4 cell"> -->
                <label>Name List:</label>
-               <input type="text" id="saveList" placeholder="Type Here.." />
+               <input type="text" id="savedList" placeholder="Type Here.." />
          </form>
-           <p><a href="#" id="save">Save</a>
-           </p>
-           <p><a href="07-saved-list.html">See Your List</a>
+           <p><a  id="create">Create List</a>
            </p>
          </div>
 
@@ -56,14 +55,56 @@
 
 <canvas id="myChart" width="20" ></canvas>
 <script>
-var ctx = document.getElementById("myChart");
+  var config = {
+    apiKey: "AIzaSyDms4GgyzLLQaCcAzeBixSq_LcmzsUw1E8",
+    authDomain: "project-1-assignment.firebaseapp.com",
+    databaseURL: "https://project-1-assignment.firebaseio.com",
+    projectId: "project-1-assignment",
+    storageBucket: "project-1-assignment.appspot.com",
+    messagingSenderId: "697790128427"
+  };
+  firebase.initializeApp(config);
+  
+  var foodNames= [];
+  var label= [];
+ 
+  database = firebase.database()
+  
+  database.ref().on('value',function(dataSnapshot){
+    foodNames.push(dataSnapshot.val().foodCals);
+    label.push(dataSnapshot.val().food)
+  })
+
+  JSON.stringify(foodNames[0])
+  JSON.stringify(label[0])
+  // arryFood.push(Object.values(testArry[0]));
+
+//   function snapshotToArray(dataSnapshot) {
+//     var returnArr = [];
+
+//     dataSnapshot.forEach(function(dataSnapshot) {
+//         var item = dataSnapshot.val();
+//         item.key = dataSnapshot.key;
+
+//         returnArr.push(item);
+//     });
+
+//     return returnArr;
+// };
+// firebase.database().ref().on('value', function(dataSnapshot) {
+//     console.log(snapshotToArray(dataSnapshot));
+// });
+
+
+
+var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: "pie",
     data: {
-        labels: [1],
+        labels: JSON.stringify(label[0]),
         datasets: [{
-            label: "calories per food/drink",
-            data: [1],
+            label: '# of Votes',
+            data: [89],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -111,7 +152,6 @@ var myChart = new Chart(ctx, {
 
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
          <script type="text/javascript" src="assets/javascript/aaron.js"></script>  
-         <script src="assets/javascript/jquery.confirm.js"></script>
         
  </body>
 </html>

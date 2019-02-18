@@ -1,41 +1,153 @@
-.body{
-    background-image: url("https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-    background-size: 100% 100%;
-}
-
-#login {
-    float:right;
-    margin-bottom:30px;
-    font-size:20px;
-}
-
-#signUp{
-    float:right;
-    margin-bottom:30px;
-    font-size:20px;
-}
-
-#mealPrep{
-    font-size: 50px;
-    margin: auto;
-}
-
-#bottomDiv{
-  margin-top:150px;
-  text-align: center;
-  
-}
-
-#finished{
-  margin-top:30px;
-
-}
-
-.center{
+h3{
     text-align: center;
+  }
+  
+  .p1{
+    text-align:center;
+  }
+  
+  .p2{
+    text-align:center;
+  }
+  
+  .body{
+      background-image: url("https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+      background-size: 100% 100%;
+  }
+
+  li{
+    list-style-type: square;
+  }
+#descript{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder;
+}
+  #topDiv{
+    background-color: lightgreen;
+    font-family: arial;
+    font-weight: bold;
+    color:green;
+}
+  #welcome{
+      background-color: lightgreen;
+      font-family: arial;
+      font-weight: bold;
+      text-align:center;
+  }
+  
+  #login {
+      float:right;
+      margin-bottom:30px;
+      font-size:20px;
+      color:green;
+  }
+  
+  #signUp{
+      float:right;
+      margin-bottom:30px;
+      font-size:20px;
+      color:green;
+  }
+  
+  #mealPrep{
+      font-size: 50px;
+      margin: auto;
+      color:lightblue;
+  }
+  
+  #bottomDiv{
+    margin-top:370px;
+    text-align: center;
+    
+  }
+  
+  #finished{
+    margin-top:80px;
+   
+  }
+  
+  .center{
+      text-align: center;
+      color: black;
+  }
+  
+  #midDiv{
+    background-color: green;
+    border-radius: 25px;
+  }
+  
+  .hide, [hidden] {
+    display: none !important;
+  }
+  
+  /*main page*/
+  
+  #title{
+    color:green;
+    font-size:30px;
+    font-weight:bold;
+  }
+  
+  #addGoal{
+    font-weight:bold;
+    color:green;
+  }
+  
+#reset{
+    font-weight:bold;
+    color:green;
 }
 
-.hide, [hidden] {
-  display: none !important;
-}
+ #openSearchContent{
+    font-weight:bold;
+    color:green;
+ }
+  
+ #yourlist{
+    font-weight:bold;
+    color:green;
+ }
+  .center{
+    color:green;
+  }
+  
+  #clickToRemove{
+    color:red;
+  }
+  
+  #running{
+    color:green;
+  }
+  
+  #runningTotal{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder;
+  }
+  
+  #goal{
+    color:green;
+  }
+  
+  #yourGoal{
+    color:green;
+  }
+  
+  .confirm{
+    color: white;
+    font-size: 30px;
+    font-weight:bold;
+    font-family: cursive;
+  }
+  
+  /*final list*/
+  
+  #finalCounter{
+    color:white;
+  }
+  
+  
+  
+  
 
