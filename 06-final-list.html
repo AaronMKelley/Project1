@@ -1,0 +1,55 @@
+<!doctype html>
+<html></html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title >Daily Food Breakdown</title>
+   <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="assets/css/foundation.css">
+   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+   <script type="text/javascript" src="assets/javascript/Chart.js"></script>
+</head>
+ <body class="body">
+   
+    <div class="grid-container">
+     <div class="grid-x grid-padding-x">
+       <div class="large-12 cell">
+         <h1 id="welcome" class="center">Your Daily Food Breakdown </h1>
+       </div>
+     </div>
+
+    <div class="grid-x grid-padding-x">
+       <div class="large-1 cell">
+        </div>
+        <div id="welcome" class="large-5 cell">
+         <div class="listDiv">
+            <br>
+            <h1 id="lists"></h1>
+            <h4 id="descript">Final Counter: <span id="runningTotal"></span>
+            <h4 id="descript">Goal: <span id="yourGoal"></span></h4>
+            <li  id="yourList"></li></h4>
+            </div>
+          </div>
+      
+    <div class="large-4 cell">
+      <div id="welcome" class="callout">
+         <form>
+         <label>Name List:</label>
+         <input type="text" id="savedList" placeholder="Type Here.." />
+         </form>
+        <p><a  id="create">Create List</a></p>
+         </div>
+    </div>
+
+ <canvas id="myChart" width="20" ></canvas>
+         <div id="bottomDiv" class="large-12 cell">
+                <div id="welcome" class='callout'>
+           <p><a class="center" href="01-home-page.html">Home &nbsp; </a> <a class="center" href="home-page.html">FAQ</a></p>
+            </div>
+         </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/aaron.js"></script>  
+</body>
+</html>
