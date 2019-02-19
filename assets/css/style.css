@@ -23,6 +23,11 @@ h3{
     color:green;
     font-weight: bolder;
 }
+.input{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder;
+}
   #topDiv{
     background-color: lightgreen;
     font-family: arial;
@@ -97,6 +102,13 @@ h3{
 #reset{
     font-weight:bold;
     color:green;
+    font-family: cursive;
+}
+
+#openSearch{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder;
 }
 
  #openSearchContent{
@@ -108,12 +120,25 @@ h3{
     font-weight:bold;
     color:green;
  }
+ #foodName{
+    color:green;
+    font-family: cursive;
+ }
+
+ #yourList{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder;
+ }
+
+#resetRunning{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder;
+}
+
   .center{
     color:green;
-  }
-  
-  #clickToRemove{
-    color:red;
   }
   
   #running{
@@ -125,7 +150,11 @@ h3{
     color:green;
     font-weight: bolder;
   }
-  
+  #create{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder; 
+  }
   #goal{
     color:green;
   }
@@ -139,6 +168,7 @@ h3{
     font-size: 30px;
     font-weight:bold;
     font-family: cursive;
+    margin-left:-75px;
   }
   
   /*final list*/
@@ -147,6 +177,11 @@ h3{
     color:white;
   }
   
+  #listName{
+    font-family: cursive;
+    color:green;
+    font-weight: bolder;
+  }
   
   
   

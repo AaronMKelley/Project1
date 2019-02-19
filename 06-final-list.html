@@ -1,10 +1,10 @@
 <!doctype html>
 <html></html>
- <head>
+<head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Daily Food Breakdown</title>
+   <title >Daily Food Breakdown</title>
    <link rel="stylesheet" href="assets/css/style.css">
    <link rel="stylesheet" href="assets/css/foundation.css">
    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
@@ -15,143 +15,41 @@
     <div class="grid-container">
      <div class="grid-x grid-padding-x">
        <div class="large-12 cell">
-         <h1 class="center">Your Daily Food Breakdown </h1>
+         <h1 id="welcome" class="center">Your Daily Food Breakdown </h1>
        </div>
      </div>
 
-     <div class="grid-x grid-padding-x">
+    <div class="grid-x grid-padding-x">
        <div class="large-1 cell">
-           </div>
-           <div class="large-5 cell">
+        </div>
+        <div id="welcome" class="large-5 cell">
          <div class="listDiv">
-           <!-- <h4 id="value_1">Value 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="Remove"></h4>
-           <h4 id="value_2">Value 2  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="Remove"></h4>
-           <h4 id="value_3">Value 3  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <input type="button" value="Remove"></h4> -->
-           <!-- <h4 id="value_3">Value 4  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <input type="button" value="Remove"></h4> -->
-
-             <br>
+            <br>
             <h1 id="lists"></h1>
-           <h4>Final Counter: <span id="runningTotal"></span>
-            <h4>Goal: <span id="yourGoal"></span></h4>
-            <li id="yourList"></li>
-           </h4>
-</div>
-</div>
-           <div class="large-4 cell">
-                <div class="callout">
+            <h4 id="descript">Final Counter: <span id="runningTotal"></span>
+            <h4 id="descript">Goal: <span id="yourGoal"></span></h4>
+            <li  id="yourList"></li></h4>
+            </div>
+          </div>
+      
+    <div class="large-4 cell">
+      <div id="welcome" class="callout">
          <form>
-           <!-- <div class="grid-x grid-padding-x">
-             <div class="large-4 medium-4 cell"> -->
-               <label>Name List:</label>
-               <input type="text" id="savedList" placeholder="Type Here.." />
+         <label>Name List:</label>
+         <input type="text" id="savedList" placeholder="Type Here.." />
          </form>
-           <p><a  id="create">Create List</a>
-           </p>
+        <p><a  id="create">Create List</a></p>
          </div>
+    </div>
 
-</div>
-
-<canvas id="myChart" width="20" ></canvas>
-<script>
-  var config = {
-    apiKey: "AIzaSyDms4GgyzLLQaCcAzeBixSq_LcmzsUw1E8",
-    authDomain: "project-1-assignment.firebaseapp.com",
-    databaseURL: "https://project-1-assignment.firebaseio.com",
-    projectId: "project-1-assignment",
-    storageBucket: "project-1-assignment.appspot.com",
-    messagingSenderId: "697790128427"
-  };
-  firebase.initializeApp(config);
-  
-  var foodNames= [];
-  var label= [];
- 
-  database = firebase.database()
-  
-  database.ref().on('value',function(dataSnapshot){
-    foodNames.push(dataSnapshot.val().foodCals);
-    label.push(dataSnapshot.val().food)
-  })
-
-  JSON.stringify(foodNames[0])
-  JSON.stringify(label[0])
-  // arryFood.push(Object.values(testArry[0]));
-
-//   function snapshotToArray(dataSnapshot) {
-//     var returnArr = [];
-
-//     dataSnapshot.forEach(function(dataSnapshot) {
-//         var item = dataSnapshot.val();
-//         item.key = dataSnapshot.key;
-
-//         returnArr.push(item);
-//     });
-
-//     return returnArr;
-// };
-// firebase.database().ref().on('value', function(dataSnapshot) {
-//     console.log(snapshotToArray(dataSnapshot));
-// });
-
-
-
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: "pie",
-    data: {
-        labels: JSON.stringify(label[0]),
-        datasets: [{
-            label: '# of Votes',
-            data: [89],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
-
-
-
-
+ <canvas id="myChart" width="20" ></canvas>
          <div id="bottomDiv" class="large-12 cell">
-                <div class='callout'>
+                <div id="welcome" class='callout'>
            <p><a class="center" href="01-home-page.html">Home &nbsp; </a> <a class="center" href="home-page.html">FAQ</a></p>
             </div>
          </div>
 
-
-
-
-
-
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-         <script type="text/javascript" src="assets/javascript/aaron.js"></script>  
-        
- </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/aaron.js"></script>  
+</body>
 </html>

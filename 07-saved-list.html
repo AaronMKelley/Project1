@@ -8,53 +8,57 @@
  
  
    <body class="body">
-<link rel="stylesheet" href="assets/css/style.css">
- <link rel="stylesheet" href="assets/css/foundation.css">
- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/foundation.css">
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script type="text/javascript" src="assets/javascript/Chart.js"></script>
+
  </head>
- <body>
+
    <div class="grid-container">
      <div class="grid-x grid-padding-x">
        <div class="large-12 cell">
-        
-       </div>
-     </div>
-
-     
-     <div class="grid-container">
-         <div class="grid-x grid-padding-x">
-        <div class= "large-2 cell"></div>
-        <div class="large-8 cell"> 
-        <div class="callout">
-            <h1 id="title" class="center">Can You see</h1>
-            <h4 class="center">Final Counter: <span id="runningTotal"></span>
-              <h4 class="center">Goal: <span id="yourGoal"></span></h4>
-              <li class="center" id="yourList"></li>
-             </h4>
-    </div>
-     </div>
-    </div>
-    <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-           <div class= "large-2 cell"></div>
-           <div class="large-8 cell">
-           <div class="callout">
-           <ul id="lists">
-               <a id="newList">Start A New List</a>
-          </ul>
-       </div>
         </div>
+     </div>
+    </div>
+     
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class= "large-2 cell"></div>
+          <div class="large-8 cell"> 
+            <div id='welcome' class="callout">
+              <h1 id="listName" class="center"></h1>
+              <h4 id="descript" class="center">Final Counter: <span id="runningTotal"></span>
+              <h4 id="descript" class="center">Goal: <span id="yourGoal"></span></h4>
+              <li class="center" id="yourList"></li></h4>
+              </div>
+            </div>
+        </div>
+    </div> 
+      
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class= "large-2 cell"></div>
+          <div class="large-8 cell">
+           <div id="welcome" class="callout">
+            <ul>
+               <a id="newList">Start A New List</a>
+            </ul>
+            </div>
+          </div>
        </div>
+    </div>   
    
+    <canvas id="myChart" width="20" ></canvas>
 
      <div id="bottomDiv" class="large-12 cell">
-            <div class='callout'>
-       <p><a class="center" href="01-home-page.html">Home &nbsp; </a> <a class="center" href="home-page.html">FAQ</a></p>
+        <div id="welcome" class='callout'>
+          <p><a class="center" href="01-home-page.html">Home &nbsp; </a> 
+          <a class="center" href="home-page.html">FAQ</a></p>
         </div>
      </div>
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script type="text/javascript" src="assets/javascript/aaron.js">
-    </script>     
- </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/aaron.js"></script>     
+</body>
 </html>

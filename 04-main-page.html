@@ -4,131 +4,93 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Meal Planner Main Page</title>
-   <link rel="stylesheet" href="assets/css/style.css">
-   <link rel="stylesheet" href="assets/css/foundation.css">
-   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
+    <title>Meal Planner Main Page</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/foundation.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 </head>
+
 <body class="body">
    
        
-<div class="grid-container">
-<div class="grid-x grid-padding-x">
-   <div class="large-2 cell">
-   </div>
-    <div id="welcome" class="large-8 cell">
-        <div id="welcome"  >
-            <h3 id="descript">What are your calorie goals? 
-                    <input id="statedGoal" type="text" ><a href="#" id="addGoal">Add Goal</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<a  id="reset" href="#">Reset Goal</a>
-             </select></h3>
-            
-           
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="large-2 cell">
+            </div>
+            <div id="welcome" class="large-8 cell">
+                <div id="welcome"  >
+                    <h3 id="descript">What are your calorie goals? 
+                    <input id="statedGoal" class="input" type="text" ><a href="#" id="addGoal">Add Goal</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a  id="reset" href="#">Reset Goal</a> </select></h3>
+                </div>
+            </div>
+         <div class="large-1 cell">
+         </div>
         </div>
-        </div>
-        <div class="large-1 cell"></div>
     </div>
 
-<!-- </div>
-<div class="grid-container">
-        <div class="grid-x grid-padding-x">
-           <div class="large-2 cell">
-           </div>
-            <div class="large-8 cell">
-                <div class='callout'>
-                    <label >Search food/drink by barcode<input id="barcodeSearch" type="text" ><button id="barcodeButton">Search</button></label>
-                    <div id="barcodeContent" class="hide"> 
-                            <h4><span id="product"></span></h4>
-                            <li><span id="calories-b"></span>&nbsp;calories</li>
-                            <li><span id='sodium-b'></span>Mg of sodium</li>
-                            <li><span id='protein-b'></span>g of protein</li>
-                            <li><span id='carbs-b'></span>g of carbs</li>
-                            <button id="addItem-b">Add Item &nbsp;&nbsp;&nbsp;&nbsp; </button>
-                            </div>
-                </div>
-                </div>
-                <div class="large-1 cell"></div>
-            </div>
-        </div> -->
-
-
-<div class="grid-container">
+    <div class="grid-container">
         <div class="grid-x grid-padding-x">
             <div class="large-2 cell">
             </div>
             <div id="welcome" class="large-8 cell" >
                 <div >
-                    <label id="addGoal" >Search food/drink by name<input id="randomFood" type="text" data-toggle-focus="form-callout" ><button id="openSearch">Search</button>&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <div id="openSearchContent" class="hide"> 
-                            <h4><span id="foodName"></span></h4>
-                            <li><span id="calories"></span>&nbsp;calories</li>
-                            <li><span id='sodium'></span>Mg of sodium</li>
-                            <li><span id='protein'></span>g of protein</li>
-                            <li><span id='carbs'></span>g of carbs</li>
-                            <button id="addItem">Add Item &nbsp;&nbsp;&nbsp;&nbsp; </button>
+                    <label id="addGoal" >Search food/drink by name<input id="randomFood" class="input" type="text" data-toggle-focus="form-callout" ><button id="openSearch">Search</button>&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <div id="openSearchContent" class="hide"> 
+                            <div id="descript">
+                                <h4><span id="foodName"></span></h4>
+                                <li><span id="calories"></span>&nbsp;calories</li>
+                                <li><span id='sodium'></span>Mg of sodium</li>
+                                <li><span id='protein'></span>g of protein</li>
+                                <li><span id='carbs'></span>g of carbs</li>
+                                <button id="addItem">Add Item &nbsp;&nbsp;&nbsp;&nbsp; </button>
                             </div>
+                        </div>
                 </div>
-                </div>
-                <div class="large-1 cell"></div>
             </div>
-</div>
+            <div class="large-1 cell"></div>
+            </div>
+    </div>
 
 
-
-
-
-
-<!-- <div class="grid-container">     -->
-<div class="grid-x ">
+    <div class="grid-x ">
          <div class="large-3 cell">
+         </div>
+        <div  class="large-3 cell" >
+            <div id="welcome"   id="listDiv" class="callout">
+                <h4  id="descript" class="center">Your List</h4>
+                <li id="yourList"></li>
+             </div>  
+        </div>
+        <div class="large-3 cell">
+            <div id="welcome" class="callout">
+                <p id="descript">Running Total: <span id="runningTotal"></span></p>
+                <p id="descript">Goal: <span id="yourGoal"></span></p>
+                <p id="warning"></p>
+                <button id="resetRunning">Reset List</button>
             </div>
-<div  class="large-3 cell" >
-<div id="welcome"   id="listDiv" class="callout">
-        <h4  id="descript" class="center">Your List</h4>
-        <li id="yourList"></li>
-  
-        
-</div>  
-</div>
-<div class="large-3 cell">
-<div id="welcome" class="callout">
-<!-- </div> -->
-<p id="descript">Running Total: <span id="runningTotal"></span></p>
-<p id="descript">Goal: <span id="yourGoal"></span></p>
-<p id="warning"></p>
-<button id="resetRunning">Reset List</button>
-</div>
-</div>
-</div>
+        </div>
+    </div>
 
-
-
-<div class="grid-x">
-        <div class="large-5 cell"></div>
-    <div id="finished"class="large-5 cell">
+    <div class="grid-x">
+        <div class="large-5 cell">
+        </div>
+        <div id="finished"class="large-5 cell">
             <a href="06-final-list.html" class="confirm">Finished? See your final list</a>
         </div>
-
-</div>
-
+    </div>
 
 
-<div id="bottomDiv" class="large-12 cell">
+
+    <div id="bottomDiv" class="large-12 cell">
         <div id="welcome" class='callout'>&nbsp;
             <p><a class="center" href="01-home-page.html">Home  </a> <a class="center" href="home-page.html">FAQ</a></p>
          </div>
     </div>
 
-
-
-
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="assets/javascript/aaron.js"></script> 
 <script type="text/javascript" src="assets/javascript/Chart.js"></script>
-<!-- <script src="assets/javascript/jquery.confirm.js"></script> -->
 <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
 

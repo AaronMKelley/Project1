@@ -1,3 +1,14 @@
+// Global Variables 
+var counter=0;
+var  goal=0;
+var runningCounter=0;
+var list=[];
+var calories=0;
+var calories2=0;
+var food;
+var foodCals = [];
+var foodArry=[];
+
 //Intialize Firebase
 var config = {
     apiKey: "AIzaSyDms4GgyzLLQaCcAzeBixSq_LcmzsUw1E8",
@@ -6,13 +17,12 @@ var config = {
     projectId: "project-1-assignment",
     storageBucket: "project-1-assignment.appspot.com",
     messagingSenderId: "697790128427"
-  };
+};
   firebase.initializeApp(config);
 
   var database= firebase.database();
 
   var firebaseKeyToFireBaseObject = {};
-
 
   database.ref().on("child_added", function(childSnapshot) {
     var cs = childSnapshot.val();
@@ -23,33 +33,18 @@ var config = {
 
     firebaseKeyToFireBaseObject[childSnapshot.key] = cs;
     
-  
-    //this is where you make an element with a custom attribute of data-fireabsekey=childCsnapshot.key and you put that o the page
-  });
+});
  
-// Your Goal
-// VAriables 
-  var counter=0;
-  var  goal=0;
-  var runningCounter=0;
-  var list=[];
-  var calories=0;
-  var calories2=0;
-  var food;
-  var foodCals = [];
-  var foodArry=[];
-
-
+// go from homepage to mainpage 
 $("#mealPrep").on('click',function(){
     event.preventDefault();
      window.location.href="04-main-page.html"
 })
-
-
-  $("#runningTotal").text(runningCounter)
-    database.ref().on('value',function(childSnapshot){
-      counter=childSnapshot.val().goal;
-        $("#yourGoal").text(childSnapshot.val().goal)
+// set intial snapshot of running total. 
+$("#runningTotal").text(runningCounter)
+database.ref().on('value',function(childSnapshot){
+  counter=childSnapshot.val().goal;
+    $("#yourGoal").text(childSnapshot.val().goal)
 });
 
 // add your goal. 
@@ -61,10 +56,7 @@ $("#addGoal").on('click',function(){
     database.ref().update({
     goal:goal
    })
-        
-   
-   
-    database.ref().update({
+  database.ref().update({
         goal:goal
 });
 });
@@ -87,7 +79,6 @@ var food= $('#randomFood').val().trim();
             url:queryURL,
             method:"GET",
           }).then(function(response) {
-            // window.location.href="05-description-page.html";
               console.log(food)
            
             if (response.calories != undefined){
@@ -113,28 +104,23 @@ var food= $('#randomFood').val().trim();
                 console.log(error)
           });
      });
-
+     // save snapshot of running toal
         database.ref().on('value',function(dataSnapshot){
             calories=dataSnapshot.val().runningCounter;
             $("#runningTotal").text(dataSnapshot.val().runningCounter)
         });
 
+    // save snapshot of the running list 
         database.ref().on('value',function(dataSnapshot){
             (list)=dataSnapshot.val().food;
             $('#yourList').text(dataSnapshot.val().food)
                  })
 
-        
-    //    database.ref().on('value',function(dataSnapshot){
-    //        foodCals=dataSnapshot.val().calories;
-    //    })
-    // foodCals=[];
+    // Add item and it's caloric intake to your list 
         $("#addItem").on('click',function(){
             list=[];
-            // Calfoods=[];
             event.preventDefault();
             food=$('#randomFood').val().trim();
-            // Calfoods.push(calories)
             foodCals.push(calories);
             foodArry.push(food);
             list.push(foodArry);
@@ -149,6 +135,8 @@ var food= $('#randomFood').val().trim();
             })
 
         })
+
+        // reset the list and running caloric intake. 
         $('#resetRunning').on('click', function(){
             alert('Please choose new foods');
             var listItem= $('<li id"foodRemove"><button>'+food +" "+ calories +'</button>');
@@ -160,63 +148,20 @@ var food= $('#randomFood').val().trim();
                })
                $('#runningTotal').text(0)
             });
-            
-
-// // Open Food Search Database
-// $("#barcodeButton").on("click",function(){
-//     event.preventDefault();
-//     var barcode= $("#barcodeSearch").val().trim();
-//     var queryURL= "https://world.openfoodfacts.org/api/v0/product/"+ barcode;
-// console.log(queryURL);
-// $.ajax({
-//     url:queryURL,
-//     method:"GET",
-// }).then(function(response){
-   
-//  var calories2 = response.product.nutriments.energy_value;
-//  var name = response.product.product_name; 
-// console.log(response.product.product_name)
-//  if (response.product.nutriments.energy_value != undefined){
-//   calories2= response.product.nutriments.energy_value;
-//  }
-//    $("#product").text(name)
-//    $("#calories-b").text(calories2);
-//    $("#sodium-b").text(response.product.nutriments.sodium)
-//    $("#protein-b").text(response.product.nutriments.proteins_value)
-//    $("#carbs-b").text(response.product.nutriments.carbohydrates_value)
-// })
-// $('#barcodeContent').removeClass('hide')
-// })
-
-// database.ref().on('value',function(dataSnapshot){
-//   calories2 =dataSnapshot.val().runningCounter;
-//       $("#runningTotal").text(dataSnapshot.val().runningCounter)
-// });
-
-// $("#addItem-b").on('click',function(){
-//     event.preventDefault();
-//     name= $("#product").val()
-//     var listItem= $('<li><button>'+ name +'</button>&nbsp;&nbsp;Click to remove</li>');
-//     $('#listDiv').append(listItem);
-//     $('#runningTotal').text(runningCounter);
-//     runningCounter += calories2
-//     foodCals.push(calories2);
-// })
+    
   
   // saving list and displaying them on final list page. 
   database.ref().on('value',function(dataSnapshot){
-    listName=dataSnapshot.val().listName;
-    //   $("#lists").text(dataSnapshot.val().listName)
+    title=dataSnapshot.val().listName;
+    $('#listName').text(dataSnapshot.val().title)
 });
-//   var listName= [];
+
+// save list with name. 
 var listName= $('#savedList').val()
-  $('#create').on('click',function(){
+  $("#create").on("click",function(){
     event.preventDefault();
-    var listName= $('#savedList').val();
-    // var listHeader=('<ul></ul>');
-    // savedList= $('<li><button>'+listName+'</button>&nbsp;&nbsp;Click to remove</li>')
-    // $(listHeader).append(savedList);
-    $('#lists').append(list);
+    var title= $("#savedList").val();
+  $('#listName').append(title);
       window.location.href="07-saved-list.html"
     database.ref().on('value',function(dataSnapshot){
         calories=dataSnapshot.val().runningCounter;
@@ -224,7 +169,7 @@ var listName= $('#savedList').val()
             counter=childSnapshot.val().goal;  
     var ref = database.ref()
      ref.set({
-         list:listName,
+         title:title,
          runningCounter:calories,
          goal:counter,
          food: list,
@@ -233,28 +178,9 @@ var listName= $('#savedList').val()
 })
 });
 
-// $("#save").on("click",function(){
-//     listName= $('#saveList').val();
-//     var ref = database.ref()
-//     database.ref().on('value',function(dataSnapshot){
-//         calories=dataSnapshot.val().runningCounter;
-//     database.ref().on('value',function(childSnapshot){
-//             counter=childSnapshot.val().goal; 
-//     database.ref().on('value',function(dataSnapshot){
-//                 counter=dataSnapshot.val().listName;
-//      ref.push({
-//          list:listName,
-//          runningCounter:calories,
-//          goal:counter
-// })
-// })
-// })
-// })
-// });
 
 
-
-
+//On click to reset values and allow you to create a new list. 
 $("#newList").on("click",function(){
     $("#yourList").empty();
     window.location.href="04-main-page.html"
@@ -262,26 +188,73 @@ $("#newList").on("click",function(){
         goal:0,
         runningCounter:0,
         list:0,
-        food:0
+        food:0,
+        foodCals:0,
            })
            $('#yourGoal').text(0);
            $("#runningTotal").text(0);
 })
   
+ // pushing data to pie chart 
+ var foodNames=[];
+ var label= [];
+
+ database = firebase.database()
+
+ database.ref().on('value',function(dataSnapshot){
+   foodNames.push(dataSnapshot.val().foodCals);
+   label.push(dataSnapshot.val().food[0]);
+  })
+
+ // display pie chart 
+var ctx = document.getElementById("myChart");
+var myChart =new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ["one","two","three"],
+        datasets: [{
+            label: '# of Votes',
+            data: [1,2,3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
   
+// function addData(chart, label, data) {
+//     chart.data.labels.push(label);
+//     chart.data.datasets.forEach((dataset) => {
+//         dataset.data.push(data);
+//     });
+//     chart.update();
+// }
+ 
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   
   
