@@ -72,7 +72,7 @@ $('#reset').on('click', function(){
 $("#openSearch").on('click',function(){
    event.preventDefault();
 var food= $('#randomFood').val().trim();
-   var queryURL = "https://api.edamam.com/api/nutrition-data?app_id=fc3a55ab&app_key=48f6858d58b2229fdcaf0e765ac5b721&ingr=1%20"+food;
+   var queryURL = "https://api.edamam.com/api/nutrition-data?app_id=eb691168&app_key=f6697b744daadc8c0d74150b228654b8&ingr=1%20"+food;
    
   console.log(queryURL);
             $.ajax({
@@ -178,8 +178,9 @@ var listName= $('#savedList').val()
 })
 });
 
-
-
+// database.ref().on('value',function(dataSnapshot){
+//     foodNames.push(dataSnapshot.val().foodCals);
+// });
 //On click to reset values and allow you to create a new list. 
 $("#newList").on("click",function(){
     $("#yourList").empty();
@@ -204,46 +205,54 @@ $("#newList").on("click",function(){
  database.ref().on('value',function(dataSnapshot){
    foodNames.push(dataSnapshot.val().foodCals);
    label.push(dataSnapshot.val().food[0]);
-  })
+   var ctx = document.getElementById("myChart");
+   var myChart =new Chart(ctx, {
+       type: 'pie',
+       data: {
+           labels: label[0],
+           datasets: [{
+               label: '# of Votes',
+               data: foodNames[0],
+               backgroundColor: [
+                   'lightblue',
+                   'lightgreen',
+                   'lightpink',
+                   'lightyellow',
+                   'red',
+                   'green',
+                   'yellow',
+                   'maroon',
+                   'pink',
+                   'purple',
+               ],
+               borderColor: [
+                   'rgba(255,99,132,1)',
+                   'rgba(54, 162, 235, 1)',
+                   'rgba(255, 206, 86, 1)',
+                   'rgba(75, 192, 192, 1)',
+                   'rgba(153, 102, 255, 1)',
+                   'rgba(255, 159, 64, 1)'
+               ],
+               borderWidth: 1
+           }]
+       },
+       options: {
+           scales: {
+               yAxes: [{
+                   ticks: {
+                       beginAtZero:true
+                   }
+               }]
+           }
+       }
+   });
+
+
+
+})
 
  // display pie chart 
-var ctx = document.getElementById("myChart");
-var myChart =new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ["one","two","three"],
-        datasets: [{
-            label: '# of Votes',
-            data: [1,2,3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
+
   
 // function addData(chart, label, data) {
 //     chart.data.labels.push(label);
