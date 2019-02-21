@@ -141,10 +141,10 @@ var food= $('#randomFood').val().trim();
             alert('Please choose new foods');
             var listItem= $('<li id"foodRemove"><button>'+food +" "+ calories +'</button>');
             $("#yourList").empty();
-            foodArry=[]
+            foodArry=[],
             database.ref().update({
             runningCounter: 0,
-            food: (" "),
+            // food:0,
                })
                $('#runningTotal').text(0)
             });
@@ -173,14 +173,13 @@ var listName= $('#savedList').val()
          runningCounter:calories,
          goal:counter,
          food: list,
+         foodCals:foodCals,
      })
   })
 })
 });
 
-// database.ref().on('value',function(dataSnapshot){
-//     foodNames.push(dataSnapshot.val().foodCals);
-// });
+
 //On click to reset values and allow you to create a new list. 
 $("#newList").on("click",function(){
     $("#yourList").empty();
@@ -191,6 +190,7 @@ $("#newList").on("click",function(){
         list:0,
         food:0,
         foodCals:0,
+        title:0,
            })
            $('#yourGoal').text(0);
            $("#runningTotal").text(0);
@@ -205,9 +205,11 @@ $("#newList").on("click",function(){
  database.ref().on('value',function(dataSnapshot){
    foodNames.push(dataSnapshot.val().foodCals);
    label.push(dataSnapshot.val().food[0]);
+  
+
    var ctx = document.getElementById("myChart");
    var myChart =new Chart(ctx, {
-       type: 'pie',
+       type: 'doughnut',
        data: {
            labels: label[0],
            datasets: [{
@@ -248,7 +250,7 @@ $("#newList").on("click",function(){
    });
 
 
-
+  
 })
 
  // display pie chart 
